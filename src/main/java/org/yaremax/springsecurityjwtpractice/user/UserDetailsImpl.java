@@ -10,6 +10,7 @@ import java.util.List;
 
 @AllArgsConstructor
 public class UserDetailsImpl implements UserDetails {
+
     private  final UserEntity userEntity;
 
     @Override
