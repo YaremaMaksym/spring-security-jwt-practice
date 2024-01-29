@@ -1,4 +1,4 @@
-package org.yaremax.springsecurityjwtpractice.config;
+package org.yaremax.springsecurityjwtpractice.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -15,12 +15,17 @@ import org.yaremax.springsecurityjwtpractice.user.UserService;
 
 @Configuration
 @RequiredArgsConstructor
-public class ApplicationConfig {
+public class SecurityConfig {
     private final UserService userService;
 
     @Bean
     public UserDetailsService userDetailsService() {
         return username -> new UserDetailsImpl(userService.findUserByEmail(username));
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
     @Bean
@@ -34,10 +39,5 @@ public class ApplicationConfig {
         authProvider.setUserDetailsService(userDetailsService());
         authProvider.setPasswordEncoder(passwordEncoder());
         return authProvider;
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
     }
 }

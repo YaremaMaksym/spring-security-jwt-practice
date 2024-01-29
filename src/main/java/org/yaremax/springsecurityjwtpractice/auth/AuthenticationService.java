@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.yaremax.springsecurityjwtpractice.auth.records.AuthenticationRequest;
 import org.yaremax.springsecurityjwtpractice.auth.records.AuthenticationResponse;
 import org.yaremax.springsecurityjwtpractice.auth.records.RegisterRequest;
-import org.yaremax.springsecurityjwtpractice.config.JwtService;
+import org.yaremax.springsecurityjwtpractice.jwt.JwtService;
 import org.yaremax.springsecurityjwtpractice.user.Role;
 import org.yaremax.springsecurityjwtpractice.user.UserDetailsImpl;
 import org.yaremax.springsecurityjwtpractice.user.UserEntity;

@@ -1,4 +1,4 @@
-package org.yaremax.springsecurityjwtpractice.config;
+package org.yaremax.springsecurityjwtpractice.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -19,7 +19,7 @@ import java.util.function.Function;
 public class JwtService {
     private static final String SECRET_KEY = "6hLxNfCQTj8Ftmp+iXbi4uAAlAHUkCUYpU58E0amPAA=";
 
-    public String extractUsername(String token) {
+    public String extractSubject(String token) {
         return extractClaim(token, Claims::getSubject);
     }
 
@@ -45,7 +45,7 @@ public class JwtService {
     }
 
     public boolean isTokenValid(String token, UserDetails userDetails) {
-        final String username = extractUsername(token);
+        final String username = extractSubject(token);
         return (username.equals(userDetails.getUsername())) && !isTokenExpired(token);
     }
 
