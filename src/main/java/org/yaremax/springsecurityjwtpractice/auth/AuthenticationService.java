@@ -5,7 +5,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.yaremax.springsecurityjwtpractice.auth.records.AuthenticationRequest;
+import org.yaremax.springsecurityjwtpractice.auth.records.LoginRequest;
 import org.yaremax.springsecurityjwtpractice.auth.records.AuthenticationResponse;
 import org.yaremax.springsecurityjwtpractice.auth.records.RegisterRequest;
 import org.yaremax.springsecurityjwtpractice.jwt.JwtService;
@@ -37,7 +37,7 @@ public class AuthenticationService {
         return new AuthenticationResponse(jwtToken);
     }
 
-    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+    public AuthenticationResponse login(LoginRequest request) {
         // will also check if username and password are correct
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(

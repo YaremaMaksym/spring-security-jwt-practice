@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.yaremax.springsecurityjwtpractice.auth.records.AuthenticationRequest;
+import org.yaremax.springsecurityjwtpractice.auth.records.LoginRequest;
 import org.yaremax.springsecurityjwtpractice.auth.records.AuthenticationResponse;
 import org.yaremax.springsecurityjwtpractice.auth.records.RegisterRequest;
 
@@ -22,8 +22,8 @@ public class AuthenticationController {
         return ResponseEntity.ok(authenticationService.register(request));
     }
 
-    @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
-        return ResponseEntity.ok(authenticationService.authenticate(request));
+    @PostMapping("/login")
+    public ResponseEntity<AuthenticationResponse> login(@RequestBody LoginRequest request) {
+        return ResponseEntity.ok(authenticationService.login(request));
     }
 }
